@@ -1,4 +1,4 @@
-//kick ass moreff
+//dkick ass moreff
 pipeline {
     agent { label 'ubuntu18slave' }
     stages {
