@@ -1,4 +1,4 @@
-//dsafkick ass moreffasfddddddddd
+//dsafkick ass moreffasfddddddddddd
 pipeline {
     agent { label 'ubuntu18slave' }
     stages {
