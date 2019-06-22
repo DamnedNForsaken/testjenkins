@@ -1,4 +1,4 @@
-//kick ass
+//kick ass more
 pipeline {
     agent { label 'ubuntu18slave' }
     stages {
