@@ -10,7 +10,8 @@ pipeline {
 	stage('last') {
 	    steps {
               sh "echo almost"
-	    	  sh "echo done"	  
+	    	  sh "echo done"
+	      githubNotify description: 'This is a shorted example',  status: 'SUCCESS'
 	    }
 	}
     }
