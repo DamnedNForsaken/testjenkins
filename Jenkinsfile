@@ -20,9 +20,9 @@ pipeline {
         }
 	stage('last') {
 	    steps {
-              sh "almost"
+              sh "echo almost"
 	    	  sh "echo done"
-              setBuildStatus("Build succeeded", "SUCCESS");
+              setBuildStatus("FAILURE", "FAILURE");
 	       //githubNotify description: 'This is a shorted example',  status: 'SUCCESS'
 	    }
 	}
