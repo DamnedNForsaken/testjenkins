@@ -11,7 +11,8 @@ pipeline {
 	    steps {
               sh "echo almost"
 	    	  sh "echo done"
-	      githubNotify description: 'This is a shorted example',  status: 'SUCCESS'
+	      githubNotify account: 'damnednforsaken', context: 'Final Test', credentialsId: 'y', description: 'This is an example', repo: 'testjenkins', sha: "${GIT_COMMIT}", status: 'SUCCESS', targetUrl: 'https://40.76.25.25'
+      //githubNotify description: 'This is a shorted example',  status: 'SUCCESS'
 	    }
 	}
     }
