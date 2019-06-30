@@ -1,4 +1,15 @@
 //dsafkick ass moreffasfddddddddddd
+void setBuildStatus(String message, String state) {
+  step([
+      $class: "GitHubCommitStatusSetter",
+      reposSource: [$class: "ManuallyEnteredRepositorySource", url: "https://github.com/DamnedNForsaken/testjenkins"],
+      contextSource: [$class: "ManuallyEnteredCommitContextSource", context: "ci/jenkins/build-status"],
+      errorHandlers: [[$class: "ChangingBuildStatusErrorHandler", result: "UNSTABLE"]],
+      statusResultSource: [ $class: "ConditionalStatusResultSource", results: [[$class: "AnyBuildResult", message: message, state: state]] ]
+  ]);
+}
+
+
 pipeline {
     agent { label 'ubuntu18slave' }
     stages {
@@ -11,9 +22,10 @@ pipeline {
 	    steps {
               sh "echo almost"
 	    	  sh "echo done"
-	      githubNotify account: 'damnednforsaken', context: 'Final Test', credentialsId: 'y', description: 'This is an example', repo: 'testjenkins', sha: "${GIT_COMMIT}", status: 'SUCCESS', targetUrl: 'https://40.76.25.25'
-      //githubNotify description: 'This is a shorted example',  status: 'SUCCESS'
+              setBuildStatus("Build succeeded", "SUCCESS");
+	       //githubNotify description: 'This is a shorted example',  status: 'SUCCESS'
 	    }
 	}
     }
 }
+
